@@ -53,6 +53,19 @@ app.post("/compose", function (req, res) {
 
 app.get("/posts/:postName", function (req, res) { // route parameters
   console.log(req.params.postName);
+  let postName = req.params.postName;
+
+  let hasMatched = posts.some(function (post) { // returns true if any of the elements in the array pass the test
+    return post.title == postName
+  })
+
+  if (hasMatched) {
+    console.log("Match Found!");
+  } else {
+    console.log("No Match Found");
+  }
+
+
 })
 
 
